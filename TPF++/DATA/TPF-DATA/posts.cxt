@@ -1,0 +1,70 @@
+12436718331243671833one[post here]admin124360645012436718401243671840two[post here]admin124360645012436718471243671847three[post here]admin124360645012436718561243671856four[post here]admin124360645012436718651243671865five[post here]admin124360645012436718721243671872six[post here]admin124360645012436718871243671887seven[post here]admin124360645012436719241243671924eight[post here]admin124360645012436719321243671932nine[post here]admin124360645012436719391243671939ten[post here]admin124360645012436719511243671951eleven[post here]admin124360645012436719591243671959twelve[post here]admin124360645012436719701243671970thirteen[post here]admin124360645012436721691243672169fourteen[post here]admin124360645012436721781243672178fifteen[post here]admin124360645012436721871243672187sixteen[post here]admin124360645012436722021243672202seventeen [post here]admin124360645012436722131243672213eighteen[post here]admin124360645012436722241243672224ninteen[post here]admin124360645012436722341243672234twenty[post here]admin124360645012436722451243672245twenty one[post here]admin124360645012436722581243672258twenty two[post here]admin124360645012436810071243681007!ALL ABOUT TPF  The original concept for this forum project was:<br />
+<br />
+A sub-20k PHP simple Forum. Users can create new groups, topics and threads and reply to other threads. Wiki-like. Database free, TinyPHPForum   uses Flat files only. Foolproof, easy, quick, tiny. No advanced features.<br />
+<br />
+<br />
+Okay, now we're up to 163K unzipped (inc a few avatars and 11K of manuals and changelogs), but the concept is the same. The original was comical in its basic-ness - I had just learnt PHP when I created it. Still, there was interest, so I finally got around to updating it, as I need a forum for a new website of mine anyway.<br />
+<br />
+<br />
+I have re-written the whole thing from the original version, so it is incompatible 100%.<br />
+<br />
+<div class='quote'>The above statements are from the original author of TPF<br />
+The version you are using is TPF++ vBeta <br />
+it has a completely different core from the original TPF<br />
+</div><br />
+<br />
+<br />
+The latest versions include the following new features:<br />
+<br />
+* User accounts with nice pictures and passwords, upload avatars<br />
+* Admin account facility (delete, edit, split things)<br />
+* Emoticons <img src='emoticons/smile.gif'><br />
+* Rich text-ish in posting - text italic link etc<br />
+* Ability to edit posts, forums, topics<br />
+* Search<br />
+* Memberlists<br />
+* Skinnable (and easy!)<br />
+* Multi-language skins<br />
+<br />
+The following features have been retained:<br />
+<br />
+* Small(ish) certainly smaller than PHPBB etc<br />
+* Database free - it is still 100% flat file based<br />
+<br />
+More to come.<br />
+<br />
+For suggestions etc, email me at address at bottom of page.<br />
+<br />
+admin124360642112436810071243681338Credits:<br />
+<br />
+Author, original design: Ralph Capper - stuff@ralpharama.co.uk<br />
+Author of TPF++ :Rosh Silva -nahsorhseda@yahoo.co.uk<br />
+Additional design: Laurent Baumann - labaumann@wanadoo.fr<br />
+<br />
+Language mods:<br />
+<br />
+English (en) by Ralph Capper <img src='emoticons/smile.gif'><br />
+French (fr) by Laurent Baumann - labaumann@wanadoo.fr<br />
+German (ger) by Mirko Gr�fen<br />
+Dutch (nl) by Tim Bemindt - link<br />
+Hungarian (hung) by Detki Karoly - valheru@index.hu<br />
+Chinese by (zh, big5) Pei Hanru<br />
+Polish by (pl) Alexis Tion Mart�nez<br />
+Spanish by (es) Alexis Tion Mart�nez<br />
+Swedish (sv) by samuellb<br />
+Italian (it) by Cecilia<br />
+Slovenian (si) by Ales Farcnik<br />
+Finnish (fi) by Petri Hartoma<br />
+<br />
+---<br />
+<br />
+(c)2006 R.Capper.<br />
+This is Open Source GNU (GPL), if you don't know what that means, read this page before using, modifying, or distributing this forum:<br />
+<br />
+http://www.gnu.org/licenses/gpl.txt link<br />
+<br />
+<div class='quote'>Only the TPF++ code is unde GNU(GPL) and not its Data Engine<br />
+CODEXQL has its own license .Its present inside the "CODEXQL-ENGINE" Folder<br />
+</div><br />
+<br />
+Thanks.admin1243606421

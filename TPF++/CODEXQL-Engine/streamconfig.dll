@@ -1,0 +1,4 @@
+<?php
+$GLOBALSTREAM_container="";
+$GLOBALSTREAM_seperator="";
+?>

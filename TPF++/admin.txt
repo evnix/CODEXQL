@@ -1,0 +1,42 @@
+Admin Profile
+-------------
+
+Use the built in account:
+
+Username: admin
+Password: password
+
+Either change the password, or create an account then make it admin using
+the account above.
+
+Note: Remember to check the 'admin' box if you edit an admin profile, or
+the admin functionaility will be lost.
+
+If you lose all admin accounts this way (oops!)
+
+then
+**************************
+IF THE ADMIN ACC. EXISTS**
+**************************
+youll have to copy the below code save it as file.php in the same folder as index.php
+and run it via browser only once for EX: http://domain.com/TPF++/file.php
+<?php
+
+require("init-codex.php");
+
+$numrows=$codex->update_where("users","user_group=admin","\$username=='admin'");
+
+$codex->commit_changes();
+
+?>
+*************************
+IF ADMIN ACC. DOESNT EXIST TRY THE ONE BELOW
+<?php
+$user_name="admin";
+$user_pass="password";
+
+$user_pass=md5($user_pass);
+$t=time();
+$codex->insert("users","uid=$t&username=$user_name&password=$user_pass&skin=tpf&language=en");
+$codex->commit_changes();
+?>

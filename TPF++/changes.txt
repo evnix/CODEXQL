@@ -1,0 +1,458 @@
+Finally, keeping a log of changes:
+
+3-Jun-04 - v2.1
+
+Worked on pofiles some more.  Can now edit your own profile.  Still need to 
+add facility to create or merely view a profile.
+You can upload avatars now, or choose from gallery.  Pretty neat, this.
+
+Permissions.  Had to set various areas to 777 to allow writing of files etc 
+by the forum.  When forums, users, etc are created by the forum itself, 
+this isn't required, but uploading pre-existing data from a PC produces 
+errors otherwise when trying to update it.  Not really a problem.
+I think...
+
+
+4-Jun-04
+
+Changed the look of the forum list and topic list pages - added a table which 
+is controlled by the CSS file.  There are spaces for last post, and poster now.
+
+Fixed some bugs with create new user - reporting non-matching password due to 
+re-use of a var name in the code.
+
+Added check to dimension size of uploaded images - they cannot exceed 120 pixels
+in height or width now.  Better.
+
+Checked that we can't create users with html in the name.
+
+
+10-Jun-04
+
+Added the 'last post' and 'last poster' fields in the forum view and topic view.
+Every time a new post if made, the lastpost.txt file is updated to contain the
+name of the new user, and the datestamp of this is the last post date/time.
+
+
+11-Jun-04
+
+Can now edit the ID number of the forums, which means you can change the order that 
+they appear in on the title screen.
+
+Also, topics are now sorted by datestamp, so posting in a topic brings it ot the top 
+of the list.
+
+
+18-Jun-04
+
+Fixed some bugs in the profile and updatepf files.  You could have a null username, or
+null password before.  Now resolved.
+
+Added a line for users to enter some text, quote, URL, whatever, in the profile section.
+This is displayed under the user's avatar whenever shown.
+
+
+19-Jun-04
+
+Added membership list option in profile.php when called with action=all
+(Must add admin function to this)
+
+
+20-Jun-04
+
+Fixed bug(s) on line 125+ in getdir, where I used $file (which didn't exist) instead of $files.
+
+
+26-Jun-04
+
+Altered profile files to include an admin checkbox.  Before, admin status was lost if you
+edited your profile.  Still need to add feature to check the box if you are an admin already!
+
+Altered rsort line in getdir to be conditional on $dirlist not being NULL, or an error can
+be generated.
+
+
+29-Jun-04
+
+Error reported when uploading avatar:
+
+Warning: move_uploaded_file(image/avatars/avatar.png): 
+failed to open stream: Permission denied in 
+/home/ralph/public_html/tpf/updatepf.php on line 54
+
+This was due to permissions on the image/avatars folder.  They can be set to 777 to allow
+uploads etc.  There are a few folders that require this upon installation, I will make
+a list and put it in the mythical 'user manual'
+
+Added an 'admin' user with password 'admin' to enable users to perform admin functions
+right away, such as, make their own profile admin too!  They should delete or change
+the password on the 'admin' account after creating their own admin account, or, at least,
+change the password of the admin account to something more secure.
+
+Written first version of user manual.
+
+[later]
+
+Added search.php file, which takes care of searching.  It is recursive and works
+on multi-word inputs.  Listing are proved with a summary of the correct post in the
+topic, and a link to it.  Lovely.
+
+Fixed the bug where profiles that are admin, when edited, lose the checked admin
+box, so often the admin status is lost.  Now if the profile is admin, it has a
+checked box when you edit it.
+
+Added a line in getdir.php to ensure that forums and posts are sorted before display, 
+otherwise you are at the mercy of the filesystem and the order it retrieves them!
+
+
+6th July 2004
+
+So many changes, where to begin?
+
+Complete change of makeup of php files.  Split into modules now - header, menu, body, config, etc.
+The config.php file contains website url, email, title and skin settings, so easy to change now.
+
+Skins should come think and fast now and will be as simple as unzipping the files into your forum
+folder and changing your config file.
+
+The css and layout have undergone radical changes, thanks to Laurent Baumann, email details in 
+the config.php file if you wish to contact him concerning design work, skins etc.
+
+Perhaps we'll see the ability for users to select what skin they want, as it is possible to 
+have many installed at once without clashes!
+
+Skinning manual will come out soon for those of you anxious to customise your forum and email 
+me your designs to be uploaded onto sourceforge.net!
+
+We're now also less than 100K for zip file size!!
+
+Feedback as usual please...
+
+[later]
+
+Changed all gfx to gif, it makes sense.
+
+Altered index, menu, formathelp to reflect this change.
+
+Added skinpic.gif to images folder for formathelp.php.
+
+[later]
+
+Fixed a lot of css and html errors that were pointed out to me.  Also changed the table
+format of the whole thing to allow more flexibility when skinning.  Now we have a nice 
+2 x 3 table, which allows a logo, picture top right, main body, menu, then a bottom bar.
+
+[later]
+
+Added last post link with gfx to forum and topic list pages.
+
+Added a nice mini-bagpuss picture above the menu, for no reason.  I'll probably have to 
+remove it due to copyright issues at some point...
+
+Fiddled with some files and css.
+
+7th July 2004
+
+Added error.php to handle all errors in a nice fashion.  It also contains a routine to
+reset your password and email it to you.  I'll have to think about this, as it could
+be abused by people reseting other user's passwords.
+
+Also changed a bug where $siteName was not being displayed in the title of webpages,
+now it is, and it is much better.
+
+[later]
+
+Added an admin function to split a topic at a certain point.  The posts from that point
+are copied into a new topic, which can then be renamed.  I haven't included a function 
+to move to a new forum.  Perhaps sometime in the future, but it is more complex...
+New file added - split.php.
+
+[later]
+
+Delete user option now in place for admin users.
+
+Updated search.php to match rest of forum.
+
+Added view counter for topics.  Each time you view a topic, its counter is incremented.
+I'm confused about locking though, please, anyone who likes, take a look at function hitme()
+in index.php, and let me know.  If the lock comes after the write, it returns false and
+doesn't write the new counter value...  Any ideas?!
+
+8th July 2004
+
+Added 'headline' topics, which means that if you prefix a topic name with '!' it will
+appear at the top if the topic list, and have a little picture next to it (skinheadline.gif),
+much like 'sticky' posts, or announcements.
+
+Fixed some HTML errors to make us more HTML compliant.
+
+Changed guest posting error message to be more in-line with theme.
+
+Tidied up forums and accounts that come with the zip package.
+
+[later]
+
+Fixed a large bug in action.php:
+
+----  if ($f2>0 & $f2!=$f) 
+
+Which used to have the variable $fid2 in it, which didn't exist!  This caused an error when 
+editing forum details.
+
+Changed the topic hit counter to create a hit file if none exists, so we'll start to see
+view counts on existing topics now...
+
+[later]
+
+Unexpcted bug meant that after each view, the topic dir got modified, so it shuffled to the 
+top of the topic list!  Not good.  So, now we read the date of lastpost.txt for our ordering, 
+and it works fine..  Phew.
+
+Also fixed the problems with ' and accented chars being translated properly.  I think!
+
+
+9th July 2004
+
+All images now appear only in css file defs.  The only exceptions are:
+
+Last post icon. lastpost.gif
+Edit icon. edit.gif
+Split icon. split.gif
+Headline icon. headline.gif (but is not displayed if it does not exist)
+Logo. log.gif (but is not displayed if it does not exist)
+Pic.gif from the formathelp.php file
+Emoticons
+
+There are now 11 image files asociated with the forum.  Check tpf/ for the list.
+
+Removed some css entities that aren't used.  Check tpf/style.css for latest.
+
+Tidied all code up, added more comments, made it look nice when you view source in 
+a browser - this helps when debugging.
+
+Removed mentop entity from css file, and made first row of main page table
+span two columns.
+
+Added filler bar at bottom of listings, as suggested.
+
+A bug is that with some logos, MS IE 6.0 displays some profile.php pages incorrectly.
+I cannot establish why this is so, it seems to occur with large logo.gif files.  I 
+cannot duplicate this in other browsers.  Bloody IE...
+
+Added new column to display number of times a topic has been viewed.  This has added 
+two more elements to the css file.
+
+There seem to be a number of css elements in other skins that aren't referenced by 
+the forum pages.  If new elements are added and used, this should be documented.  Use
+tpf/style.css as a template and document changes from that please.
+
+
+12th July 2004
+
+Added author to topic view, for thread starter.
+
+Added number of posts per user, held in users/username.hits
+
+Added flag in config.php to block site to unregistered users.
+
+Added avatargallery.php to view uploaded avatars.
+
+
+13th July 2004
+
+Updated profile.php memberlist screen, as I didn't like it.
+
+
+14th July 2004
+
+** Security fix - by altering $f $t and $p values, guests and no admin users could
+perform various admin tasks.  This was due to lack of $admin checking in action.php.
+Now fixed.
+
+Added multi-lang support to all files.
+
+[later]
+
+Fixed a lot of lang errors - missing places where English was written.
+
+Added German provided by Mirko Gräfen.
+
+Changed $title and $siteName confusion in html.
+
+Changed some html formatting.
+
+
+15th July 2004
+
+Fixed a number of bugs and language issues, but not all of them. Hence the .05 version increase.
+
+Have added a nice option for users all to have different languages though...
+
+Various fixes on skins, language etc.
+
+Also added (admin) for admin users on posts.
+
+Various other html move arounds.
+
+[later]
+
+Add ability for users to select own skin too...
+
+[later]
+
+Removed 'edited by' text from action.php, and the include line for the lang_ file.
+This caused PHP sometimes to think that it couldn't re-direct as the UTF included
+file was echoing invisible chars to the screen!
+
+
+16th July
+
+Added time stamp to posts.
+
+Changed proile.php to include some lang trans I had missed.
+
+Search.php changed to include author of matching topic.
+
+[later]
+
+Added $hitcouner flag for main page.  Set in config.php  Allows a main index page
+hit counter - always nice to see!
+
+
+19th July
+
+Removed line in updatepf.php that prevented uploads!
+
+Removed indexhits.txt from forum folder, which gave permission errors!
+
+[later]
+
+Updated avatar gallery config file order, this resolves skins not being used properly.
+
+Updated config file order in split.php, which caused errors when used.
+
+I replaced ' with &#39; in files that are read in and displayed... The reason?
+I had statements like this:
+echo "<input [...] value='".$text."'>";
+But if text contains 's then the output html can look like this:
+<input [...] value='Ralph's Apostrophe's Bad Day'>
+Which, as we can see, isn't good... But with the replacement, it now reads:
+<input [...] value='Ralph&#39;s Apostrophe&#39;s Bad Day'>
+(Changes in index.php and profile.php)
+
+
+20th July
+
+Added user-on-line feature, which is a footprint file in users dir for each 
+user when 'touching files' it is written with current date.  When the file is 
+a minute out of date, it is deleted, so the user vanishes from the on-line-list.
+
+Fixed bug in error.php which mean blank emails were being sent to people.
+
+
+28th July 2004
+
+[done] * Check admin logoff on IE browsers - domain and path in cookie may cause the problem. [Can't duplicate this error on IE 6.0 - Ralph]
+[done] * Add file_get_contents() alternative for earlier users of PHP [Changed to implode(file($f)); - Ralph]
+[done] * For Frontpage users - "_vti_cnf" should be excluded from forum dir list [Ralph]
+[done] * Check bitwise operator & where should be && in index.php [Ralph]
+[done] * Check $avatar=$_POST["avatar"]; in updatepf.php [added line, where did it go?! - Ralph]
+[done] * Change cookie timout [Now set in config.php]
+[done] * Display the lang of user in the members list? [Also skin]
+[done] * Try and get rid of 'warnings' on systems set to error_reporting E_ALL [Ralph]
+
+
+29 July 2004
+
+Updated cookie security logon to include a session id which is checked against an md5
+version on the server.  Otherwise, users could edit the cookie data and log on as whoever
+they liked!
+
+
+3rd August 2004
+
+— modified showPosts() to add a td with edit and split options
+— modified placement of "edit" option in list of forums and list of post
+— removed style on "a" element and done a class for each different link (lot of them already exist)
+in fact every 'a.something' inherit from the 'a' class so if you define a padding or something in a it's really annoying for all other links, so the default class is now 'link' (amazing !)
+— changed <a id="bot"></a> for <tr><td><a id="bot"></a></td></tr> cause nothing can exist between a </tr> and a <tr>
+— removed some style on the footer row, writed inline (we have to use css at maximum for skinning purpose)
+— changed links for CSS and HTML validation (no javascript anymore)
+— changed bug in "link" class in post 
+— removed a.topic class (not used anywhere)
+— commented the style.css
+- Changed: $files = implode("",file($f)); in getdir.php for old php users
+
+5th August
+
+-- Fixed html validation bugs.
+-- Fixed search.php link bugs.
+
+1st Sept
+
+* Just a few typos and minor bugs, as detailed on the forum website.  
+Not a lot of work done lately on the forum, as I haven't had the time.
+
+29th August 2006
+
+Fixed the rest of the '|'s and '&'s in some if-clauses. Checking of valid forum 
+and topic names added.
+
+28th Sept
+
+Now every script uses PHP sessions: it prevents the most used XSS (Cross Site
+Scripting) attacks. Fixed some unlocalized texts in Edit Topic form and in
+other parts of the admin screens. 
+
+
+
+
+
+
+
+
+
+
+
+*************************************************************************************************
+30th May 2009
+OH 2006-2009(No Updates Since){Iam Not Ralph[The original creator]}
+My Name is Rosh Silva (U.K)[19 years after three days from 30/05/2009] 
+When i Downloaded this forum.It was using a hell lot of resources
+* Even when the index.php used to load ,it had to go through almost each and every directory
+and file
+* It did not look slow, but when the forum reached 100 topics, you could feel the difference
+* There was no pagination 
+* data was stored in multiple flat files.It was very hardware expensive(think about the no of disk seeks)
+* so i thought of doing a little cleaning!
+
+------HOPEFULLY RALPH DOESN'T MIND 
+
+***Here are the changes:
+--This Forum now works only with PHP 5.0 or higher
+--Used a new Data Engine(CODEXQL) to store Data into FLAT FILES
+--SQL like Syntax to insert, update and retrieve data
+--Added Pagination Feature For Topics
+--Changed The Resource intensive Search Feature
+--Removed The Split Feature(will be added in the next version(1.0) as a MOD)
+--Renamed TPF 3.61 to TPF++ vBeta (LOL since,the whole internal working of the forum has changed)
+--Cleaned Some Old Bugs
+--TPF++ is now being tested under "E_STRICT|E_NOTICE|E_WARNING|E_PARSE" Conditions
+--Uploaded images will have unique names(so no more rewriting of older images)
+--Most of the outer structure hasn't been touched like skins,lang,hits,sid etc.
+--It will Still require the "forums" and the "users" folder to store hits and onlines
+--I was a little curious about the ICO file,so i changed it(since users will have their own ICO anyway)
+--Most of the older code is just commented out 
+
+***Changes Thought for the next version (TPF++ v1.0)
+-to completely use sessions and remove cookies
+-add pagination for posts
+-change search from strpos to more powerfull REGEX
+-add module capabilities as in PHPBB or SMF
+-add WYSIWYG editor
+-add a real templating/skin mechanism (Probably use Smarty)
+
+##inspite of the heavy changes in the next version we will maintain total backward compatibility
+  you only have to replace the "DATA" folder with your older one and you'll have a new version	
+
+************************************************************************************************
