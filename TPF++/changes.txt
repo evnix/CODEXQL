@@ -275,7 +275,7 @@ Added multi-lang support to all files.
 
 Fixed a lot of lang errors - missing places where English was written.
 
-Added German provided by Mirko Gräfen.
+Added German provided by Mirko Grï¿½fen.
 
 Changed $title and $siteName confusion in html.
 
@@ -371,16 +371,16 @@ they liked!
 
 3rd August 2004
 
-— modified showPosts() to add a td with edit and split options
-— modified placement of "edit" option in list of forums and list of post
-— removed style on "a" element and done a class for each different link (lot of them already exist)
+ï¿½ modified showPosts() to add a td with edit and split options
+ï¿½ modified placement of "edit" option in list of forums and list of post
+ï¿½ removed style on "a" element and done a class for each different link (lot of them already exist)
 in fact every 'a.something' inherit from the 'a' class so if you define a padding or something in a it's really annoying for all other links, so the default class is now 'link' (amazing !)
-— changed <a id="bot"></a> for <tr><td><a id="bot"></a></td></tr> cause nothing can exist between a </tr> and a <tr>
-— removed some style on the footer row, writed inline (we have to use css at maximum for skinning purpose)
-— changed links for CSS and HTML validation (no javascript anymore)
-— changed bug in "link" class in post 
-— removed a.topic class (not used anywhere)
-— commented the style.css
+ï¿½ changed <a id="bot"></a> for <tr><td><a id="bot"></a></td></tr> cause nothing can exist between a </tr> and a <tr>
+ï¿½ removed some style on the footer row, writed inline (we have to use css at maximum for skinning purpose)
+ï¿½ changed links for CSS and HTML validation (no javascript anymore)
+ï¿½ changed bug in "link" class in post 
+ï¿½ removed a.topic class (not used anywhere)
+ï¿½ commented the style.css
 - Changed: $files = implode("",file($f)); in getdir.php for old php users
 
 5th August
@@ -417,7 +417,7 @@ other parts of the admin screens.
 *************************************************************************************************
 30th May 2009
 OH 2006-2009(No Updates Since){Iam Not Ralph[The original creator]}
-My Name is Rosh Silva (U.K)[19 years after three days from 30/05/2009] 
+My Name is Avinash D' Silva (IN)[19 years after three days from 30/05/2009] 
 When i Downloaded this forum.It was using a hell lot of resources
 * Even when the index.php used to load ,it had to go through almost each and every directory
 and file
